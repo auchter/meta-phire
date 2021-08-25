@@ -1,0 +1,9 @@
+header:
+  version: 10
+repos:
+  meta-phire:
+    layers:
+      meta-phire-sunxi:
+  meta-sunxi:
+    url: git://github.com/linux-sunxi/meta-sunxi
+    refspec: 91ddc99c985bb1f5d7f0542a480eca497a4458a3

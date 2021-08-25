@@ -1,0 +1,10 @@
+header:
+  version: 10
+  includes:
+    - base.yml
+    - rpi.yml
+local_conf_header:
+  rpi0_serial: ENABLE_UART = "1"
+machine: raspberrypi0-wifi
+target: phire-image
+

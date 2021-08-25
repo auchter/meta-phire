@@ -1,0 +1,36 @@
+header:
+  version: 10
+distro: phire
+local_conf_header:
+  bmap: IMAGE_FSTYPES += "wic.gz wic.bmap"
+repos:
+  meta-phire:
+    layers:
+      meta-phire:
+  bitbake:
+    url: git://github.com/openembedded/bitbake
+    refspec: 078f3164dcb1de7a141bec3a8fd52631d0362631
+    path: bitbake
+    layers:
+      .: excluded
+  openembedded-core:
+    url: git://github.com/openembedded/openembedded-core
+    refspec: 9039dd25e5d419dd1c60e1b27ff5f9d96c5b0fb5
+    path: oe-core
+    layers:
+      meta:
+  meta-openembedded:
+    url: git://github.com/openembedded/meta-openembedded
+    refspec: 11eae114522a6befa06c7f4021a83bc016133543
+    path: meta-oe
+    layers:
+      meta-oe:
+      meta-filesystems:
+      meta-networking:
+      meta-python:
+  meta-mender:
+    url: git://github.com/mendersoftware/meta-mender
+    refspec: 2fc8ad1635ea9db71730a54bacc05b4513d0cb4a
+    path: meta-mender
+    layers:
+      meta-mender-core:
