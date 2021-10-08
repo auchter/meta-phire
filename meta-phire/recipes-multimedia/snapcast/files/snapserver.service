@@ -1,0 +1,13 @@
+[Unit]
+Description=Snapcast server
+Wants=avahi-daemon.service
+After=network.target time-sync.target avahi-daemon.service
+ConditionFileNotEmpty=/data/snapcast/snapserver.conf
+
+[Service]
+EnvironmentFile=-/data/snapcast/snapserver
+ExecStart=/usr/bin/snapserver --logging.sink=system -c /data/snapcast/snapserver.conf $SNAPSERVER_OPTS
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
