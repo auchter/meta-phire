@@ -1,0 +1,7 @@
+header:
+  version: 10
+  includes:
+    - base.yml
+    - rpi.yml
+machine: raspberrypi2
+target: phire-image
