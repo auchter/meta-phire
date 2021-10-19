@@ -1,0 +1,11 @@
+[Unit]
+Description=Set hostname from file
+Before=systemd-networkd.service
+After=data.mount
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/set-hostname
+
+[Install]
+WantedBy=multi-user.target
