@@ -35,3 +35,7 @@ repos:
     path: meta-mender
     layers:
       meta-mender-core:
+  meta-rust:
+    url: git://github.com/meta-rust/meta-rust
+    refspec: d4384db8c3f0aa01732627f92fc3d446359bf743
+    path: meta-rust
