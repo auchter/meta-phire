@@ -9,7 +9,7 @@ repos:
       meta-phire:
   bitbake:
     url: git://github.com/openembedded/bitbake
-    refspec: 078f3164dcb1de7a141bec3a8fd52631d0362631
+    refspec: 93094705c1c66688e0730a1efb17805778c9fa9f
     path: bitbake
     layers:
       .: excluded
