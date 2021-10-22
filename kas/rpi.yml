@@ -6,12 +6,13 @@ local_conf_header:
   mender: |
     MENDER_STORAGE_DEVICE = "/dev/mmcblk0"
     MENDER_STORAGE_TOTAL_SIZE_MB = "30520"
+    MENDER_BOOT_PART_SIZE_MB = "40"
+    MENDER_DATA_PART_SIZE_MB = "24000"
 
     MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd mender-image mender-client-install mender-persist-systemd-machine-id mender-systemd mender-growfs-data"
     MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi"
 
     RPI_USE_U_BOOT = "1"
-    MENDER_BOOT_PART_SIZE_MB = "40"
 
     # rpi-base.inc removes these as they are normally installed on to the
     # vfat boot partition. To be able to update the Linux kernel Mender
