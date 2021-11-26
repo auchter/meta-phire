@@ -1,0 +1,7 @@
+header:
+  version: 10
+  includes:
+    - base.yml
+    - sunxi.yml
+machine: pine-h64
+target: phire-image
