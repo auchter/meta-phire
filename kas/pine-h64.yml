@@ -2,6 +2,15 @@ header:
   version: 10
   includes:
     - base.yml
-    - sunxi.yml
 machine: pine-h64
 target: phire-image
+repos:
+  meta-pine64:
+    url: https://github.com/alistair23/meta-pine64.git
+    refspec: 5fea66524ace99b45801b8be4c77536db4f39ad4
+  meta-arm:
+    url: git://git.yoctoproject.org/meta-arm
+    refspec: ce535dfb96de4d2529f091d7d85a7172c626001c
+    layers:
+      meta-arm:
+      meta-arm-toolchain:
