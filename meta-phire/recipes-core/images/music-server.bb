@@ -1,9 +1,7 @@
-require phire-image.bb
+require music-client.bb
 
 SUMMARY = "Music server image"
 
 IMAGE_INSTALL_append = "\
-    brutefir \
     librespot \
-    snapcast \
 "
