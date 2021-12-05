@@ -2,7 +2,7 @@ header:
   version: 10
   includes:
     - base.yml
-machine: pine-h64
+machine: pine-h64-model-b
 target: phire-image
 repos:
   meta-pine64:
