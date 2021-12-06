@@ -1,7 +1,7 @@
 SUMMARY = "image"
 
 IMAGE_FEATURES = "\
-    splash \
+    package-management \
     ssh-server-openssh \
     "
 
