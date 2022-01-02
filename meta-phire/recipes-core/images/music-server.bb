@@ -7,5 +7,6 @@ IMAGE_INSTALL_append = "\
     libgpiod-python \
     libgpiod-tools \
     librespot \
+    mpd \
     python3 \
 "
