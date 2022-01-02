@@ -1,0 +1,6 @@
+header:
+  version: 10
+  includes:
+    - pine-h64.yml
+machine: phire-preamp
+target: music-server
