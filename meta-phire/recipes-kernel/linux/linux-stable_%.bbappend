@@ -10,5 +10,6 @@ SRC_URI_append_pine-h64-model-b = " \
 
 SRC_URI_append_phire-preamp = " \
     file://0001-arm64-dts-add-device-tree-for-preamp.patch \
+    file://0002-add-line-names.patch \
     file://phire-preamp.cfg \
 "
