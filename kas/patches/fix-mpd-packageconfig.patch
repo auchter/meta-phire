@@ -1,0 +1,33 @@
+From d8da3806aa67bbe345649cbda076ff7376c821b8 Mon Sep 17 00:00:00 2001
+From: Konrad Weihmann <kweihmann@outlook.com>
+Date: Tue, 2 Jun 2020 22:52:41 +0200
+Subject: mpd: fix PACKAGECONFIG assignment
+
+As ??= assignment will be overwritten by += in any case,
+one can't define a default of PACKAGECONFIG in this recipe.
+Previously the default setting was just overwritten by the += operation.
+
+Signed-off-by: Konrad Weihmann <kweihmann@outlook.com>
+Signed-off-by: Khem Raj <raj.khem@gmail.com>
+---
+ meta-multimedia/recipes-multimedia/musicpd/mpd_0.20.22.bb | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+(limited to 'meta-multimedia/recipes-multimedia/musicpd')
+
+diff --git a/meta-multimedia/recipes-multimedia/musicpd/mpd_0.20.22.bb b/meta-multimedia/recipes-multimedia/musicpd/mpd_0.20.22.bb
+index 133ee6e79..818b9271f 100644
+--- a/meta-multimedia/recipes-multimedia/musicpd/mpd_0.20.22.bb
++++ b/meta-multimedia/recipes-multimedia/musicpd/mpd_0.20.22.bb
+@@ -28,7 +28,7 @@ S = "${WORKDIR}/git"
+ EXTRA_OECONF += "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '--with-systemdsystemunitdir=${systemd_unitdir}/system/', '--without-systemdsystemunitdir', d)}"
+ 
+ PACKAGECONFIG ??= "alsa ao bzip2 daemon ffmpeg fifo flac fluidsynth iso9660 jack libsamplerate libwrap httpd mms mpg123 modplug sndfile upnp openal opus oss recorder vorbis wavpack zlib"
+-PACKAGECONFIG += "${@bb.utils.contains('LICENSE_FLAGS', 'commercial', 'aac', '', d)}"
++PACKAGECONFIG_append = " ${@bb.utils.contains('LICENSE_FLAGS', 'commercial', 'aac', '', d)}"
+ 
+ PACKAGECONFIG[aac] = "--enable-aac,--disable-aac,faad2"
+ PACKAGECONFIG[alsa] = "--enable-alsa,--disable-alsa,alsa-lib"
+-- 
+cgit v1.2
+

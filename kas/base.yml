@@ -29,6 +29,10 @@ repos:
       meta-multimedia:
       meta-networking:
       meta-python:
+    patches:
+      mpd:
+        repo: meta-phire
+        path: kas/patches/fix-mpd-packageconfig.patch
   meta-mender:
     url: git://github.com/mendersoftware/meta-mender
     refspec: 2fc8ad1635ea9db71730a54bacc05b4513d0cb4a
