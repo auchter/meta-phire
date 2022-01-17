@@ -17,4 +17,11 @@ S = "${WORKDIR}/git"
 
 inherit setuptools3 pkgconfig
 
-RDEPENDS:${PN} = "python-brutefir"
+RDEPENDS:${PN} = "\
+    python3-brutefir \
+    python3-flask \
+    python3-flask-restful \
+    python3-gevent \
+    python3-powermate \
+    python3-requests \
+"
