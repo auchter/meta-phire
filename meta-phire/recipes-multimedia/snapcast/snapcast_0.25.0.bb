@@ -9,6 +9,7 @@ SRC_URI = "\
     git://github.com/badaix/snapcast;branch=master \
     file://snapclient.service \
     file://snapserver.service \
+    file://0001-Hack-in-BruteFIR-support.patch \
 "
 SRCREV = "2af5292f9df9e8f5a54114ed0ef96ca25cd32135"
 S = "${WORKDIR}/git"
