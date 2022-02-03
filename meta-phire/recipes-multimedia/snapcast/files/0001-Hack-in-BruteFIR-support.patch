@@ -1,7 +1,7 @@
 From 9064ac019cb55aed7dfd3dd3c63633773254514f Mon Sep 17 00:00:00 2001
 From: Michael Auchter <a@phire.org>
 Date: Wed, 12 Jan 2022 16:41:31 +0000
-Subject: [PATCH] Hack in BruteFIR support
+Subject: [PATCH 1/2] Hack in BruteFIR support
 
 ---
  CMakeLists.txt        |  2 +-
@@ -344,5 +344,5 @@ index 8b88586e..8b6adac2 100644
      std::vector<char> resample_buffer_;
      std::vector<char> read_buffer_;
 -- 
-2.31.1
+2.33.1
 
