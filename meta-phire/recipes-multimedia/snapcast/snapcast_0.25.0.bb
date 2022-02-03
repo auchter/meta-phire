@@ -43,4 +43,6 @@ do_install_append() {
     install -m 0644 ${WORKDIR}/snapserver.service ${D}/${systemd_unitdir}/system
 }
 
+FILES_${PN} += "/usr/share/snapserver/*"
+
 SYSTEMD_SERVICE_${PN} = "snapclient.service snapserver.service"
