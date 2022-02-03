@@ -18,10 +18,13 @@ S = "${WORKDIR}/git"
 inherit setuptools3 pkgconfig
 
 RDEPENDS:${PN} = "\
+    python3-aniso8601 \
     python3-brutefir \
     python3-flask \
     python3-flask-restful \
     python3-gevent \
+    python3-pexpect \
     python3-powermate \
+    python3-pytz \
     python3-requests \
 "
