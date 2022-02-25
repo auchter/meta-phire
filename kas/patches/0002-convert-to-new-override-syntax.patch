@@ -1,0 +1,123 @@
+From 3387d4adb7b3f3952f861c53a68844eef078daf6 Mon Sep 17 00:00:00 2001
+From: Michael Auchter <a@phire.org>
+Date: Fri, 25 Feb 2022 20:34:21 +0000
+Subject: [PATCH 2/2] convert to new override syntax
+
+---
+ README.md                                          |  4 ++--
+ .../trusted-firmware-a_%.bbappend                  |  4 ++--
+ recipes-bsp/u-boot/u-boot_%.bbappend               | 14 +++++++-------
+ recipes-graphics/mesa/mesa_%.bbappend              |  2 +-
+ recipes-kernel/linux/linux-pine64_5.10.bb          |  2 +-
+ recipes-kernel/linux/linux-yocto-dev.bbappend      |  2 +-
+ recipes-kernel/linux/linux-yocto_%.bbappend        |  2 +-
+ 7 files changed, 15 insertions(+), 15 deletions(-)
+
+diff --git a/README.md b/README.md
+index ab3bcc4..67f8752 100644
+--- a/README.md
++++ b/README.md
+@@ -73,7 +73,7 @@ To use WiFi add this to your local.conf:
+ 
+ ```
+ DISTRO_FEATURES += "ipv4 ipv6 wifi"
+-IMAGE_INSTALL_append = "linux-firmware-rtl8723 wpa-supplicant"
++IMAGE_INSTALL:append = "linux-firmware-rtl8723 wpa-supplicant"
+ ```
+ 
+ ### Displaying the kernel boot log on HDMI
+@@ -92,7 +92,7 @@ To use Wayland graphics add this to your local.conf:
+ 
+ ```
+ DISTRO_FEATURES += "wayland opengl"
+-PACKAGECONFIG_append_pn-mesa = " gallium lima kmsro"
++PACKAGECONFIG:append:pn-mesa = " gallium lima kmsro"
+ ```
+ 
+ Then build Weston using:
+diff --git a/recipes-bsp/trusted-firmware-a/trusted-firmware-a_%.bbappend b/recipes-bsp/trusted-firmware-a/trusted-firmware-a_%.bbappend
+index 4dba6aa..6185611 100644
+--- a/recipes-bsp/trusted-firmware-a/trusted-firmware-a_%.bbappend
++++ b/recipes-bsp/trusted-firmware-a/trusted-firmware-a_%.bbappend
+@@ -1,3 +1,3 @@
+-COMPATIBLE_MACHINE_append_a64 = "|a64"
+-COMPATIBLE_MACHINE_append_h6 = "|h6"
++COMPATIBLE_MACHINE:append:a64 = "|a64"
++COMPATIBLE_MACHINE:append:h6 = "|h6"
+ 
+diff --git a/recipes-bsp/u-boot/u-boot_%.bbappend b/recipes-bsp/u-boot/u-boot_%.bbappend
+index d186bff..955c792 100644
+--- a/recipes-bsp/u-boot/u-boot_%.bbappend
++++ b/recipes-bsp/u-boot/u-boot_%.bbappend
+@@ -1,25 +1,25 @@
+-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
++FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+ 
+-SRC_URI_append_a64 = " \
++SRC_URI:append:a64 = " \
+     file://boot.txt \
+     file://0001-sun6i-Increase-the-maximum-UART-baud-rate.patch \
+     "
+ 
+-DEPENDS_append_a64 = " u-boot-tools-native"
++DEPENDS:append:a64 = " u-boot-tools-native"
+ 
+ ATF_DEPENDS ??= ""
+ 
+-EXTRA_OEMAKE_append_a64 = " BL31=${DEPLOY_DIR_IMAGE}/bl31-sun50i_a64.bin"
++EXTRA_OEMAKE:append:a64 = " BL31=${DEPLOY_DIR_IMAGE}/bl31-sun50i_a64.bin"
+-ATF_DEPENDS_a64 = " virtual/trusted-firmware-a:do_deploy"
++ATF_DEPENDS:a64 = " virtual/trusted-firmware-a:do_deploy"
+ 
+-EXTRA_OEMAKE_append_h6 = " BL31=${DEPLOY_DIR_IMAGE}/bl31-sun50i_h6.bin"
++EXTRA_OEMAKE:append:h6 = " BL31=${DEPLOY_DIR_IMAGE}/bl31-sun50i_h6.bin"
+-ATF_DEPENDS_h6 = " virtual/trusted-firmware-a:do_deploy"
++ATF_DEPENDS:h6 = " virtual/trusted-firmware-a:do_deploy"
+ 
+ do_compile[depends] .= "${ATF_DEPENDS}"
+ 
+-do_configure_prepend_a64() {
++do_configure:prepend:a64() {
+     mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" \
+         -d ${WORKDIR}/boot.txt ${WORKDIR}/boot.scr
+ }
+ 
+-FILES_${PN}_append_a64 = " /boot/boot.scr"
++FILES:${PN}:append:a64 = " /boot/boot.scr"
+diff --git a/recipes-graphics/mesa/mesa_%.bbappend b/recipes-graphics/mesa/mesa_%.bbappend
+index 33743c6..0211af8 100644
+--- a/recipes-graphics/mesa/mesa_%.bbappend
++++ b/recipes-graphics/mesa/mesa_%.bbappend
+@@ -1,2 +1,2 @@
+-PACKAGECONFIG_append_h6 = " kmsro panfrost"
++PACKAGECONFIG:append:h6 = " kmsro panfrost"
+ 
+diff --git a/recipes-kernel/linux/linux-pine64_5.10.bb b/recipes-kernel/linux/linux-pine64_5.10.bb
+index 161d1af..cc4455b 100644
+--- a/recipes-kernel/linux/linux-pine64_5.10.bb
++++ b/recipes-kernel/linux/linux-pine64_5.10.bb
+@@ -35,4 +35,4 @@ KCONFIG_MODE="--alldefconfig"
+ COMPATIBLE_MACHINE = "pine-a64-lts|sopine-a64|pine-a64-plus"
+ 
+ # This is necessary since kmeta would be necessary otherwise
+-KERNEL_FEATURES_remove = "cfg/fs/vfat.scc"
++KERNEL_FEATURES:remove = "cfg/fs/vfat.scc"
+diff --git a/recipes-kernel/linux/linux-yocto-dev.bbappend b/recipes-kernel/linux/linux-yocto-dev.bbappend
+index c02429f..baa791a 100644
+--- a/recipes-kernel/linux/linux-yocto-dev.bbappend
++++ b/recipes-kernel/linux/linux-yocto-dev.bbappend
+@@ -1,2 +1,2 @@
+-COMPATIBLE_MACHINE_append_pine-h64 = "|pine-h64"
++COMPATIBLE_MACHINE:append:pine-h64 = "|pine-h64"
+ 
+diff --git a/recipes-kernel/linux/linux-yocto_%.bbappend b/recipes-kernel/linux/linux-yocto_%.bbappend
+index c02429f..baa791a 100644
+--- a/recipes-kernel/linux/linux-yocto_%.bbappend
++++ b/recipes-kernel/linux/linux-yocto_%.bbappend
+@@ -1,2 +1,2 @@
+-COMPATIBLE_MACHINE_append_pine-h64 = "|pine-h64"
++COMPATIBLE_MACHINE:append:pine-h64 = "|pine-h64"
+ 
+-- 
+2.33.1
+

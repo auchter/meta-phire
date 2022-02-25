@@ -1,0 +1,22 @@
+From 5d0242a8c9c2fbebad3e29d61e40608c270d2d7e Mon Sep 17 00:00:00 2001
+From: Michael Auchter <a@phire.org>
+Date: Fri, 25 Feb 2022 20:33:52 +0000
+Subject: [PATCH 1/2] add honister to layer.conf
+
+---
+ conf/layer.conf | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/conf/layer.conf b/conf/layer.conf
+index e93758b..882fef9 100644
+--- a/conf/layer.conf
++++ b/conf/layer.conf
+@@ -9,4 +9,4 @@ BBFILE_COLLECTIONS += "pine64-layer"
+ BBFILE_PATTERN_pine64-layer = "^${LAYERDIR}/"
+ BBFILE_PRIORITY_pine64-layer = "5"
+ 
+-LAYERSERIES_COMPAT_pine64-layer = "dunfell gatesgarth hardknott"
++LAYERSERIES_COMPAT_pine64-layer = "dunfell gatesgarth hardknott honister"
+-- 
+2.33.1
+
