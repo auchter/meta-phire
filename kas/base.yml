@@ -33,12 +33,6 @@ repos:
       mpd:
         repo: meta-phire
         path: kas/patches/fix-mpd-packageconfig.patch
-  meta-mender:
-    url: git://github.com/mendersoftware/meta-mender
-    refspec: 2fc8ad1635ea9db71730a54bacc05b4513d0cb4a
-    path: meta-mender
-    layers:
-      meta-mender-core:
   meta-rust:
     url: git://github.com/meta-rust/meta-rust
     refspec: d4384db8c3f0aa01732627f92fc3d446359bf743
