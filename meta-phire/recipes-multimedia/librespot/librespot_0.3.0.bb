@@ -11,7 +11,7 @@ SRC_URI += "git://github.com/librespot-org/librespot.git;protocol=https;nobranch
 SRCREV = "4c89a721eeed791bdd85120df80e0e83ca9caff3"
 S = "${WORKDIR}/git"
 CARGO_SRC_DIR = ""
-PV_append = ".AUTOINC+4c89a721ee"
+PV:append = ".AUTOINC+4c89a721ee"
 
 # please note if you have entries that do not begin with crate://
 # you must change them to how that package can be fetched

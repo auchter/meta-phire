@@ -3,7 +3,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=069a8f5df3a055a9424baacbaefbcb52"
 HOMEPAGE = "https://torger.se/anders/brutefir.html"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI = "\
     https://torger.se/anders/files/brutefir-1.0o.tar.gz \
@@ -21,9 +21,9 @@ PACKAGECONFIG[alsa] = "BRUTEFIR_ALSA=yes,,alsa-lib"
 PACKAGECONFIG[jack] = "BRUTEFIR_JACK=yes,,jack"
 PACKAGECONFIG[oss] = "BRUTEFIR_OSS=yes,,"
 
-EXTRA_OEMAKE_x86 = "ARCH=x86"
-EXTRA_OEMAKE_x86-64 = "ARCH=x86"
-EXTRA_OEMAKE_append = "CC='${CC}' LD='${CC}' ${PACKAGECONFIG_CONFARGS}"
+EXTRA_OEMAKE:x86 = "ARCH=x86"
+EXTRA_OEMAKE:x86-64 = "ARCH=x86"
+EXTRA_OEMAKE:append = "CC='${CC}' LD='${CC}' ${PACKAGECONFIG_CONFARGS}"
 
 do_install() {
     make install INSTALL_PREFIX=${D}${exec_prefix} ${PACKAGECONFIG_CONFARGS}

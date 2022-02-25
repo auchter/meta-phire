@@ -1,4 +1,4 @@
-do_install_append () {
+do_install:append () {
     install -d ${D}${sysconfdir}/wpa_supplicant
     ln -s /data/wpa_supplicant/wpa_supplicant-wlan0.conf ${D}/${sysconfdir}/wpa_supplicant/
 

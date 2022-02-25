@@ -2,7 +2,7 @@ require phire-image.bb
 
 SUMMARY = "Music client image"
 
-IMAGE_INSTALL_append = "\
+IMAGE_INSTALL:append = "\
     alsa-utils \
     brutefir \
     python3 \

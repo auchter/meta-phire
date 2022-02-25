@@ -10,7 +10,7 @@ LICENSE = "MIT"
 
 inherit core-image
 
-IMAGE_INSTALL_append = "\
+IMAGE_INSTALL:append = "\
     htop \
     linux-firmware \
     set-hostname \

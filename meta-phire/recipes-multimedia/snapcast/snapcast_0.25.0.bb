@@ -3,7 +3,7 @@ LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7702f203b58979ebbc31bfaeb44f219c"
 HOMEPAGE = "https://github.com/badaix/snapcast"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI = "\
     git://github.com/badaix/snapcast;branch=master \
@@ -37,12 +37,12 @@ PACKAGECONFIG[pulseaudio] = "-DBUILD_WITH_PULSE=ON,-DBUILD_WITH_PULSE=OFF,pulsea
 PACKAGECONFIG[alsa] = ",,alsa-lib"
 PACKAGECONFIG[soxr] = ",,soxr"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/snapclient.service ${D}/${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/snapserver.service ${D}/${systemd_unitdir}/system
 }
 
-FILES_${PN} += "/usr/share/snapserver/*"
+FILES:${PN} += "/usr/share/snapserver/*"
 
-SYSTEMD_SERVICE_${PN} = "snapclient.service snapserver.service"
+SYSTEMD_SERVICE:${PN} = "snapclient.service snapserver.service"

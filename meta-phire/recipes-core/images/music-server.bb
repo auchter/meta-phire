@@ -2,7 +2,7 @@ require music-client.bb
 
 SUMMARY = "Music server image"
 
-IMAGE_INSTALL_append = "\
+IMAGE_INSTALL:append = "\
     bluepy \
     libgpiod \
     libgpiod-python \
