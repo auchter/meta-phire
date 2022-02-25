@@ -9,19 +9,19 @@ repos:
       meta-phire:
   bitbake:
     url: git://github.com/openembedded/bitbake
-    refspec: 93094705c1c66688e0730a1efb17805778c9fa9f
+    refspec: 1428128c787642dca690a7d51f2be793e001ae37
     path: bitbake
     layers:
       .: excluded
   openembedded-core:
     url: git://github.com/openembedded/openembedded-core
-    refspec: 9039dd25e5d419dd1c60e1b27ff5f9d96c5b0fb5
+    refspec: eeae63c343c8ebd418679915ee20aa8c02fa0fdc
     path: oe-core
     layers:
       meta:
   meta-openembedded:
     url: git://github.com/openembedded/meta-openembedded
-    refspec: 11eae114522a6befa06c7f4021a83bc016133543
+    refspec: 0fb490a08ce30b47a5ccd2fdc3448b08e0d9e4e9
     path: meta-oe
     layers:
       meta-oe:
@@ -29,14 +29,14 @@ repos:
       meta-multimedia:
       meta-networking:
       meta-python:
-    patches:
-      mpd:
-        repo: meta-phire
-        path: kas/patches/fix-mpd-packageconfig.patch
+        #    patches:
+        #      mpd:
+        #        repo: meta-phire
+        #        path: kas/patches/fix-mpd-packageconfig.patch
   meta-rust:
     url: git://github.com/meta-rust/meta-rust
-    refspec: d4384db8c3f0aa01732627f92fc3d446359bf743
+    refspec: c654f5cb928bd4f4c7da7d74a8356fd2a94283f6
     path: meta-rust
   meta-linux-mainline:
     url: https://git.sr.ht/~pbarker/meta-linux-mainline
-    refspec: 0555a943b48b4a08db72b64b72b5f3bb9f4c1d9c
+    refspec: 8150e0ec4d7a0712b5f2ead7bbb639b832490b15

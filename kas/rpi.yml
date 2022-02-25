@@ -3,5 +3,5 @@ header:
 repos:
   meta-raspberrypi:
     url: git://git.yoctoproject.org/meta-raspberrypi
-    refspec: 77190af02d48adc2b28216775e6318e9eeda571c
+    refspec: 378d4b6e7ba64b6a9a701457cc3780fa896ba5dc
     path: meta-raspberrypi
