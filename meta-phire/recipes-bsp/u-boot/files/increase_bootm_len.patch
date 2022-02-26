@@ -1,0 +1,13 @@
+diff --git a/include/configs/sunxi-common.h b/include/configs/sunxi-common.h
+index 9e37e99684..5168b3099a 100644
+--- a/include/configs/sunxi-common.h
++++ b/include/configs/sunxi-common.h
+@@ -32,7 +32,7 @@
+ #endif
+
+ #ifdef CONFIG_ARM64
+-#define CONFIG_SYS_BOOTM_LEN		(32 << 20)
++#define CONFIG_SYS_BOOTM_LEN		(64 << 20)
+ #endif
+
+ /* Serial & console */
