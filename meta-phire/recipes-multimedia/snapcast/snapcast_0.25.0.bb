@@ -11,6 +11,8 @@ SRC_URI = "\
     file://snapserver.service \
     file://0001-Hack-in-BruteFIR-support.patch \
     file://0002-Add-brutefir_config-option.patch \
+    file://0001-include-missing-headers.patch \
+    file://0001-hack-to-deal-with-broken-boost.patch \
 "
 SRCREV = "2af5292f9df9e8f5a54114ed0ef96ca25cd32135"
 S = "${WORKDIR}/git"

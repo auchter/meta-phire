@@ -1,0 +1,65 @@
+From 3f605f73bfc9107d281f240fedfca8b3879d8cc0 Mon Sep 17 00:00:00 2001
+From: Michael Auchter <a@phire.org>
+Date: Sat, 26 Feb 2022 12:17:56 +0000
+Subject: [PATCH] hack to deal with broken boost
+
+Shouldn't be necessary, but work around broken boost using
+std::transform without including this header...
+---
+ client/brutefir.cpp                    | 1 +
+ client/brutefir.hpp                    | 1 +
+ client/player/player.cpp               | 1 +
+ server/streamreader/process_stream.hpp | 1 +
+ 4 files changed, 4 insertions(+)
+
+diff --git a/client/brutefir.cpp b/client/brutefir.cpp
+index 30c74b59..b47f6a95 100644
+--- a/client/brutefir.cpp
++++ b/client/brutefir.cpp
+@@ -19,6 +19,7 @@
+ #include <string>
+ #include <cstdio>
+ #include <vector>
++#include <algorithm>
+ #include <boost/process/start_dir.hpp>
+ #include <boost/filesystem.hpp>
+ #include "brutefir.hpp"
+diff --git a/client/brutefir.hpp b/client/brutefir.hpp
+index 7f4bc3cb..d9aa67c8 100644
+--- a/client/brutefir.hpp
++++ b/client/brutefir.hpp
+@@ -26,6 +26,7 @@
+ #include "common/message/pcm_chunk.hpp"
+ #include "common/queue.h"
+ #include <boost/asio.hpp>
++#include <algorithm>
+ #include <boost/process.hpp>
+ 
+ namespace bp = boost::process;
+diff --git a/client/player/player.cpp b/client/player/player.cpp
+index 973230b9..2851fb16 100644
+--- a/client/player/player.cpp
++++ b/client/player/player.cpp
+@@ -26,6 +26,7 @@
+ #pragma GCC diagnostic ignored "-Wunused-result"
+ #pragma GCC diagnostic ignored "-Wunused-parameter"
+ #pragma GCC diagnostic ignored "-Wmissing-braces"
++#include <algorithm>
+ #include <boost/process/args.hpp>
+ #include <boost/process/child.hpp>
+ #include <boost/process/exe.hpp>
+diff --git a/server/streamreader/process_stream.hpp b/server/streamreader/process_stream.hpp
+index ce38ad11..55b78955 100644
+--- a/server/streamreader/process_stream.hpp
++++ b/server/streamreader/process_stream.hpp
+@@ -23,6 +23,7 @@
+ #pragma GCC diagnostic ignored "-Wunused-result"
+ #pragma GCC diagnostic ignored "-Wunused-parameter"
+ #pragma GCC diagnostic ignored "-Wmissing-braces"
++#include <algorithm>
+ #include <boost/process.hpp>
+ #pragma GCC diagnostic pop
+ #include <memory>
+-- 
+2.33.1
+
